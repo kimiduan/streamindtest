@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>体验一下</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+<link href="bootstrap.css" rel="stylesheet" type="text/css">
+<link href="Streamind.css"  rel="stylesheet" type="text/css">
+</head>
+
+<body>
+        <div class="container">
+  
+  <!--header-->
+  <div class="header fixed-top">
+    <div class="signup nav nav-pills pull-right">
+      <a class="btn btn-default btn-sm active" role="button" href="Streamind-demo.html">体验一下</a>
+      <a class="btn btn-primary btn-sm" role="button" href="Streamind-signup.html" style="margin-left: 5px;">申请 API Key !</a>
+    </div>
+    <ul class="logo">
+      <li><h2 href="http://www.streamind.com">慧流</h2></li>
+      <li><p class="alpha">alpha</p></li>
+    </ul>
+  </div>
+  
+  <!--contant-->
+  <div class="row" style="min-height: 500px;">
+    <div class="col-md-2"></div>
+    <div class="col-sm-12 col-md-8">
+      <div class="content">
+        
+        <!--胶囊导航-->
+        <ul class="pills pills-nav">
+          <li class="active"><a href="#url" data-toggle="tab"><span class="glyphicon glyphicon-link" style="padding-bottom: 2px;"></span>&ensp;链接</a></li>
+          <li><a href="#text" data-toggle="tab"><span class="glyphicon glyphicon-edit" style="padding-bottom: 2px;"></span>&ensp;文本</a></li>
+          <li><a href="#file" data-toggle="tab"><span class="glyphicon glyphicon-file" style="padding-bottom: 2px;"></span>&ensp;文件</a></li>
+        </ul>
+        
+        <!--输入框tab-content-->
+        <div class="tab-content">
+          <!--链接-->
+          <div class="tab-pane active" id="url">
+            <form role="form">
+              <div class="form-group">
+                <input type="url" class="form-control" id="input_url" placeholder="输入或拖入URL">
+              </div>
+			  <button type="button" id="fat-btn" data-loading-text="操作中..." class="btn btn-primary submit">开始操作</button>
+            </form>
+          </div>
+          
+          <!--文本-->
+          <div class="tab-pane" id="text">
+            <div class="form-group">
+              <textarea class="form-control" rows="3"></textarea>
+            </div>
+          </div>
+          
+          <!--上传-->
+          <div class="tab-pane" id="file">
+            <div class="form-group">
+              <input type="file" id="exampleInputFile">
+            </div>
+          </div>
+          
+          <script>
+            $(function() {
+              var btn = $('#fat-btn').click(function () {
+                btn.button('loading')
+                setTimeout(function () {
+                  btn.button('reset')
+                }, 3000)
+              })
+            })
+          </script>
+          
+        </div>
+         
+
+        <div class="demo-content">
+        
+        <!--标签页-->
+          <ul class="tabs tabs-nav">
+            <li class="active"><a href="#detail" data-toggle="tab">细节</a></li>
+            <li><a href="#summary" data-toggle="tab">摘要</a></li>
+            <li><a href="#elements" data-toggle="tab">信息元素&ensp;<span class="badge">9</span></a></li>
+            <li><a href="#related" data-toggle="tab">相关内容&ensp;<span class="badge">0</span></a></li>
+          </ul>
+		  
+		  <div class="tab-content">
+            <div class="tab-pane active" id="detail">
+			<h3>苹果iBeacon改变本地商业的10个理由</h3>
+          
+            <ul class="content-details">
+              <li><p>ID：<a href="#">1000001</a></p></li>
+              <li><p>时间：<a href="#">2013-10-1-14:53</a></p></li>
+              <li><p>作者：<a href="#">Kryptoners</a></p></li>
+              <li style="margin-right: 0px;"><p>来源：<a href="http://www.36kr.com/p/206695.html">http://www.36kr.com/p/206695.html</a></p></li>
+            </ul>
+          
+          <p>对于软硬件平台紧密结合的一个优点是，OS 的升级可以迅速推动新技术的发展，产生整个平台和生态系统级别的网络效应。苹果的iBeacon就是这样一个例子。以下是 Steve Cheney 对这个新特性将如何改变本地商业的 10 点看法。</p>
+          <div class="content-list">
+          <ol>
+            <li>iBeacon 最早推出是在今年的苹果 WWDC 大会上。作为 iOS 7 的一部分，它吸引人的一点是，iBeacon 是一种开发标准——绝大多数智能手机支持蓝牙 4.0（BTE）已经超过 2 年前（苹果从 iPhone 4S 开始）。蓝牙芯片近年来发展迅速，在性能和效率方面都有很大提高，且不断变得更小更便宜。现在，一块纽扣电池就能提供长达 2 年的使用寿命，而且是在设备不断对外发射信号的情况下。</li>
+            <li>Beacon 可以是任何形状，放置在任何地方。从开发者的角度，Beacon 可以发送自己独特的 ID，App 的开发者就能利用这个 ID 知道设备的位置并为你提供相应服务。苹果已经将 iBeacon 整合进了 CoreLocation 框架，它的所有行为都将会苹果进行处理。</li>
+            <li>人们喜欢把蓝牙和 NFC 做比较。事实上，蓝牙的一个优势是如今的芯片已经内置了对 OTA 固件更新的支持，意味着 Beacon 在装载之后仍可以更新。新的固件可以对 Beacon 进行省电方面的优化等。</li>
+            <li>此外，可以利用 iBeacon 分清楚不同的距离概念，比如近（near），适中（medium）和远（far），从而使得 iBeacon + 蓝牙在目前基于位置的服务中远远好于 GPS + WiFi 的组合。另外值得注意的是，iBeacon + 蓝牙在室内导航（Indoor Navigation）方面前景光明。</li>
+            <li>如今通过 3 个或 3 个以上 Beacon 来进行三角定位已经非常容易，使得粗略的室内定位的成本下降到 100 美元以下，未来甚至可以更低。零售商有什么理由不采用 Beacon 来吸引每个拥有 iPhone 的消费者呢？Google 一直对室内定位感兴趣，在这方面也有多年的经验。尽管 Beacon 更关注近距离和不同的场景来实现更精确的定位，两者对苹果 Google 来说有各自不同的吸引力。</li>
+            <li>室内导航可以走得更远，而不仅仅像现在一样只感知到你的存在即可。举个例子，如果每隔 10 英尺放 15 个 Beacon 就能形成一个网状网络，那么每个 Beacon 之间就能交换 ID 信息。这无疑提高了室内导航的精度。在这个例子中，关键在于 Beacon 能够随着固件 OTA 的更新而更新。在这个细分市场上，Estimote 已经领先了一大步，Beacon 的工作能够被延长许多年。</li>
+            <li>如果要完成这样一整套的工作，必须需要在整个平台的级别有很多努力。这也是苹果在这方面的统一是其在这个领域大幅领先的原因。iOS 可以在 WiFi 和 GPS 打开时通过 CoreLocation 框架来唤醒 app，然后 app 寻找、发现附近的 beacon，只有这时 beacon 才开始与 app 通信，使得 app 不会一直在后台运行，无谓地浪费电量（iBeacon 只有在被激活之后才能唤醒 app）。另外，苹果有一个利用最新的 M7 处理器的 CoreMotion 框架。Android 在这方面还没有为开发者提供很统一的框架。定位服务是电池杀手，只有消费者看到 iBeacon 的价值并且还不那么耗电时，开发者才会开始采用 iBeacon，所以 Android 需要为开发者提供一套统一的开发工具。</li>
+            <li>苹果对于 iBeacon 的推进虽然背离了 NFC 市场，但仍然能够依靠其开放的平台和开发者环境建立一个新的标准（强调苹果的开放是因为我认为人们错误地认为苹果是封闭的 ，但是从本文第 7 点中可以看到，Android 系统的碎片化使得只有少部分 Android 手机能够在 1 年到 1 年半之内支持类似 Beacon 一样的系统）。而苹果不需要做任何“封闭”的事情来消除 Android 的这个问题，因为 iBeacon 这个标准的基础是几乎完全开放的技术。</li>
+            <li>这一切似乎抛出了一个重要的问题：苹果有针对本地商户的战略规划吗？我认为答案是肯定的。这个战略有能力改变商户对本地的理解吗？答案还是肯定的。iOS 7 和 iBeacon 在一夜之间用一个标准化的技术创造了一个生态系统网络，而且有完全开放的开发者环境。显而易见的是，苹果已经开始整理各种碎片，使得消费者通过苹果的设备进行线下的交易——如不需要任何售货员，只需轻松通过指纹识别支付的方式——而苹果只需开放其支付的 API，剩下的就水到渠成了。</li>
+            <li>一个显然的事实是，未来几年零售业在移动平台的推动下将发生翻天覆地的变化。苹果和 Google 无疑是背后重要的推动力量，开发者也会青睐他们。本地商业是一个无比庞大的市场，仅在美国就是 1 万亿美元的潜在机会。我的观点是，它最终可能会变成苹果的“封闭平台”，而 Android 平台的碎片化反而可能延缓这些技术的应用。</li>
+          </ol>
+          </div>
+			</div>
+            <div class="tab-pane" id="summary">
+			  <p>对于软硬件平台紧密结合的一个优点是，OS的升级可以迅速推动新技术的发展，产生整个平台和生态系统级别的网络效应。
+事实上，蓝牙的一个优势是如今的芯片已经内置了对OTA固件更新的支持，意味着Beacon在装载之后仍可以更新。</p>
+              <p>此外，可以利用iBeacon分清楚不同的距离概念，比如近（near），适中（medium）和远（far），从而使得iBeacon+蓝牙在目前基于位置的服务中远远好于GPS+WiFi的组合。</p>
+			  <p>苹果对于iBeacon的推进虽然背离了NFC市场，但仍然能够依靠其开放的平台和开发者环境建立一个新的标准（强调苹果的开放是因为我认为人们错误地认为苹果是封闭的，但是从本文第7点中可以看到，Android系统的碎片化使得只有少部分Android手机能够在1年到1年半之内支持类似Beacon一样的系统）。</p>
+			  <p>显而易见的是，苹果已经开始整理各种碎片，使得消费者通过苹果的设备进行线下的交易——如不需要任何售货员，只需轻松通过指纹识别支付的方式——而苹果只需开放其支付的API，剩下的就水到渠成了。</p>
+			</div>
+            <div class="tab-pane" id="elements">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>元素</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>苹果</th>
+                <th>查看简介</th>
+              </tr>
+              
+            </tbody>
+          </table>	
+          </div>		  
+			</div>
+            <div class="tab-pane" id="related">正在建设中</div>
+          </div>
+        
+          
+          
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  
+  <!--footer-->
+  <div class="footer">
+    <ul class="footer-nav navbar-footer-nav">
+      <li><a href="http://www.streamind.com/features">了解更多</a></li>
+      <li><a href="http://www.streamind.com/q&a">常见问题</a></li>
+      <li><a href="http://www.streamind.com/API">API文档</a></li>
+      <li><a href="http://www.streamind.com/contact">联系我们</a></li>
+      <li><a href="http://www.streamind.com/terms" style="width: 68px;">条款&隐私</a></li>
+    </ul>
+    <div class="copyright"><p>Streamind &copy; 2013</p></div>
+  </div>
+    
+  </div>
+</body>

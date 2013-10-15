@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- <html lang="en"> -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>API文档</title>
+    
+  <!-- Bootstrap core Css -->
+  <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    
+  <!-- Streamind Css -->
+  <link href="../css/Streamind.css"  rel="stylesheet" type="text/css">
+    
+  <!-- Cikoness Css-->
+  <link rel="stylesheet" href="css/cikonss.css">
+    
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+    
+</head>
+
+<body>
+  <div class="container">
+  
+  <!--header-->
+  <div class="header fixed-top">
+    <div class="signup nav nav-pills pull-right">
+      <a class="btn btn-default btn-sm" role="button" href="../demo">体验一下</a>
+      <a class="btn btn-primary btn-sm" role="button" href="../signup" style="margin-left: 5px;">申请 API Key !</a>
+    </div>
+    <a href="http://www.streamind.com">
+    <ul class="logo">
+      <li><h2 >慧流</h2></li>
+      <li><p class="alpha">alpha</p></li>
+    </ul>
+	</a>
+  </div>
+  
+  <!--contant-->
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-sm-12 col-md-8">
+      <div class="content">
+        <h3>慧流｜Streamind IDOL API</h3>
+        <p>API文档：<a href="http://www.streamind.com/api/download"><span class="glyphicon glyphicon-cloud-download"></span>点击下载</a></h3>
+        <p>建议调用方法：<a href="http://zh.wikipedia.org/wiki/CURL">cURL</a></p>
+        <p>URL：<a href="http://www.streamind.cn/api/idol">http://www.streamind.com/api/idol</a></p>
+        <p>支持格式：<a href="http://zh.wikipedia.org/zh-cn/JSON">JSON</a></p>
+        <p>HTTP请求方法：<a href="http://zh.wikipedia.org/wiki/HTTP#.E8.AF.B7.E6.B1.82.E6.96.B9.E6.B3.95">POST</a></p>
+        <!--<p style="text-indent: 0em;">是否需要开发者验证码（access token）：是</p>-->
+        <p>访问受权限制：普通接口，无频次限制</p>
+        
+        <!--表格-->
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>请求参数</th>
+                <th>必选</th>
+                <th>类型&范围</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>access_token</th>
+                <th>true</th>
+                <th>string</th>
+                <th>开发者验证码 API Key</th>
+              </tr>
+              <tr>
+                <th>input_url</th>
+                <th>false</th>
+                <th>string</th>
+                <th>输入需要处理内容的链接</th>
+              </tr>              
+              <tr>
+                <th>input_text</th>
+                <th>false</th>
+                <th>text</th>
+                <th>输入需要处理内容的文本</th>
+              </tr>
+              <tr>
+                <th>id_number</th>
+                <th>false</th>
+                <th>int64</th>
+                <th>输入已处理内容ID号返回历史结果</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <br />
+        
+        <p style="text-indent: 0em;">返回JSON示例：</p>
+        
+        <!--示例-->
+        <div class="example">
+          <p>{</p>
+          <p>“id_number”:100001,</p>
+          <p>“content”:“ 云计算（cloud computing）是基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。云是网络、互联网的一种比喻说法。过去在图中往往用云来表示电信网，后来也用来表示互联网和底层基础设施的抽象。狭义云计算指IT基础设施的交付和使用模式，指通过网络以按需、易扩展的方式获得所需资源；广义云计算指服务的交付和使用模式，指通过网络以按需、易扩展的方式获得所需服务。这种服务可以是IT和软件、互联网相关，也可是其他服务。它意味着计算能力也可作为一种商品通过互联网进行流通...”,</p>
+          <p>“title”:”云计算”,</p>
+          <p>“summary”:“ 云计算是基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。”,</p>
+          <p>“author”:“百度百科”,</p>
+          <p>“elements”:“[云计算],[互联网],...,”,</p>
+          <p>}</p>
+        </div> 
+       
+       <br />
+        
+        <!--表格-->
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>返回值</th>
+                <th>字段类型</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>id_number</th>
+                <th>int64</th>
+                <th>已处理内容ID号</th>
+              </tr>
+              <tr>
+                <th>content</th>
+                <th>text</th>
+                <th>内容文本</th>
+              </tr>
+              <tr>
+                <th>title</th>
+                <th>string</th>
+                <th>标题</th>
+              </tr>
+              <tr>
+                <th>time</th>
+                <th>time</th>
+                <th>处理时间</th>
+              </tr>
+              <tr>
+                <th>author</th>
+                <th>string</th>
+                <th>作者</th>
+              </tr>
+              <tr>
+                <th>source</th>
+                <th>string</th>
+                <th>来源</th>
+              </tr>
+              <tr>
+                <th>summary</th>
+                <th>text</th>
+                <th>摘要</th>
+              </tr>
+              <tr>
+                <th>elements</th>
+                <th>string</th>
+                <th>信息元素</th>
+              </tr>
+              <tr>
+                <th>related</th>
+                <th>string</th>
+                <th>已处理过的相关内容</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+             
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  
+  <!--footer-->
+  <div class="footer">
+    <ul class="footer-nav navbar-footer-nav">
+      <li><a href="#" class="active">API文档</a></li>
+      <li><a href="../q&a">常见问题</a></li>
+      <li><a href="../contact">联系我们</a></li>
+      <li><a href="../terms" style="width: 65px;">条款&隐私</a></li>
+    </ul>
+    <div class="copyright"><p>Streamind &copy; 2013</p></div>
+  </div>
+    
+  </div>
+</body>
+ 

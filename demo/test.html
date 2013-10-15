@@ -1,0 +1,163 @@
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>体验一下</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="bootstrap.js"></script>
+	<script src="../js/jquery.json.js"></script>
+	<script src="../js/functions-demo.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../css/Streamind.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+	$(function(){
+		$('.popover2').popover({
+			 html : true,
+			 content: function() {
+				 $.get('https://www.googleapis.com/freebase/v1/search?query='+$(this).data('original-title')+'&lang=zh',function(result){ 
+				 var encoded = $.toJSON(result);
+				 var elements = $.evalJSON( encoded ).result;var topic = elements[0].mid;
+				 $.get('https://www.googleapis.com/freebase/v1/topic/'+topic+'?filter=/common/topic/description&lang=zh',function(result){
+					 var encoded2 = $.toJSON(result);
+					 var description = $.evalJSON( encoded2 ).property;
+					 $.each(description, function( index, value){$('#popover_content_wrapper').html(value.values[0].value);})})})
+					 return $('#popover_content_wrapper').html();}});});</script>
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style></head>
+
+<body screen_capture_injected="true">
+  <div class="container">
+  <div id="popover_content_wrapper" style="display: none"></div>
+  <!--header-->
+  <div class="header fixed-top">
+    <div class="signup nav nav-pills pull-right">
+      <a class="btn btn-default btn-sm active" role="button" href="Streamind-demo.html">体验一下</a>
+      <a class="btn btn-primary btn-sm" role="button" href="Streamind-signup.html" style="margin-left: 5px;">申请 API Key !</a>
+    </div>
+    <ul class="logo">
+      <li><h2 href="http://www.streamind.com">慧流</h2></li>
+      <li><p class="alpha">alpha</p></li>
+    </ul>
+  </div>
+  
+  <!--contant-->
+  <div class="row" style="min-height: 500px;">
+    <div class="col-md-2"></div>
+    <div class="col-sm-12 col-md-8">
+      <div class="content">
+        
+        <!--胶囊导航-->
+        <ul class="pills pills-nav">
+          <li class="active"><a href="#url" data-toggle="tab"><span class="glyphicon glyphicon-link" style="padding-bottom: 2px;"></span>&ensp;链接</a></li>
+          <li><a href="#text" data-toggle="tab"><span class="glyphicon glyphicon-edit" style="padding-bottom: 2px;"></span>&ensp;文本</a></li>
+          <li><a href="#file" data-toggle="tab"><span class="glyphicon glyphicon-file" style="padding-bottom: 2px;"></span>&ensp;文件</a></li>
+        </ul>
+        
+        <!--输入框tab-content-->
+        <div class="tab-content">
+          <!--链接-->
+          <div class="tab-pane active" id="url">
+            <form role="form">
+              <div class="form-group">
+                <input type="url" class="form-control" id="input_url" placeholder="输入或拖入URL">
+              </div>
+			  <button type="button" id="url_submit" data-loading-text="操作中..." class="btn btn-primary submit">开始操作</button>
+            </form>
+          </div>
+          
+          <!--文本-->
+          <div class="tab-pane" id="text">
+            <div class="form-group">
+              <textarea class="form-control" rows="3" id="input_text"></textarea>
+            </div>
+			<button type="button" id="text_submit" data-loading-text="操作中..." class="btn btn-primary submit">开始操作</button>
+          </div>
+          
+          <!--上传-->
+          <div class="tab-pane" id="file">
+            <div class="form-group">
+              <input type="file" id="exampleInputFile" style="float:left">
+            </div>
+			<button type="button" id="file_sumbit" data-loading-text="操作中..." class="btn btn-primary submit">开始操作</button>
+          </div>
+          
+          <script>
+            $(function() {
+              var btn = $('#fat-btn').click(function () {
+                btn.button('loading')
+                setTimeout(function () {
+                  btn.button('reset')
+                }, 3000)
+              })
+            })
+          </script>
+          
+        </div>
+         
+
+        <div class="demo-content" style="">
+        
+        <!--标签页-->
+          <ul class="tabs tabs-nav">
+            <li class=""><a href="#detail" data-toggle="tab">细节</a></li>
+            <li><a href="#summary" data-toggle="tab">摘要</a></li>
+            <li class="active"><a href="#elements" data-toggle="tab">信息元素&ensp;<span id="elements_num" class="badge">9</span></a></li>
+            <li><a href="#related" data-toggle="tab">相关内容&ensp;<span class="badge">0</span></a></li>
+          </ul>
+		  
+		  <div class="tab-content">
+            <div class="tab-pane" id="detail">
+			<h3 id="title">国务院参事：征遗产税拟进三中全会文件|遗产税|三中全会|参事_新浪新闻</h3>
+          
+            <ul class="content-details">
+              <li><p>ID：<a href="#">1000001</a></p></li>
+              <li><p>时间：<a href="#">2013-10-1-14:53</a></p></li>
+              <li><p>作者：<a href="#">Kryptoners</a></p></li>
+              <li style="margin-right: 0px;"><p>来源：<a href="http://www.36kr.com/p/206695.html">http://www.36kr.com/p/206695.html</a></p></li>
+            </ul>
+           
+		     <div id="content"><div id="artibody" contentscore="1588">
+
+<!-- publish_helper name='原始正文' p_id='1' t_id='1' d_id='28286617' f_id='3' -->
+
+<p>　　国务院参事、中央财经大学税务学院副院长刘桓在一次讲座上透露，征收遗产税被写入十八届三中全会文件草稿。但他个人认为，目前推出时机并不成熟，还需要过三四十年才可行。&nbsp;&nbsp;“目前征收条件不成熟，我给中央写了意见。”刘桓表示。今年11月，十八届三中全会将在北京召开，研究全面深化改革重大问题，目前全会文件尚在修改中。</p>
+
+<p>　　刘桓表示，征收遗产税不符合当前中国的养老模式。与美国以国家养老模式为主不同，中国是以居家养老为主，少数人群则依靠社区养老和机构养老。在中国，赡养父母的责任是子女的，如果目前推出遗产税，必然会遭受很多反对意见。</p>
+
+<p>　　刘桓说，法规不健全也是目前不应该推出征收遗产税的理由，中国房产只有70年使用权而无所有权，传代困难造成了征收遗产税难。</p>
+
+<p>　　今年2月，国务院批转国家发改委等《关于深化收入分配制度改革的若干意见》，首次提出“研究在适当时期开征遗产税问题。”刘桓表示，如果现在推出遗产税，估计很难征收，而且对一些企业家带来压力。</p>
+
+<p>　　今年3月，北京师范大学中国收入分配研究院在京发布《遗产税制度及其对我国收入分配改革的启示》课题中期成果报告。报告认为，无论从社会公平政策、转变增长方式，还是缩小贫富差距，推进遗产税改革的时机均已成熟，条件也已基本具备。<strong>来源：金陵晚报</strong></p>
+<!-- publish_helper_end --><div>（编辑：SN027）</div>
+
+<script type="text/javascript" src="http://news.sina.com.cn/js/87/20130816/content/355.js"></script></div>
+</div>          
+			</div>
+            <div class="tab-pane" id="summary">正在加载中，请稍候</div>
+            <div class="tab-pane active" id="elements"><div class="table-responsive"><table class="table table-hover" style="text-align:center"><thead><tr><th style="width:50%">元素</th><th>相关</th></tr></thead><tbody><tr><td>国务院参事</td><td><a href="#" class="popover2" data-placement="top" data-original-title="国务院参事">显示更多</a></td></tr><tr><td>遗产税</td><td><a href="#" class="popover2" data-placement="top" data-original-title="遗产税">显示更多</a></td></tr><tr><td>三中全会</td><td><a href="#" class="popover2" data-placement="top" data-original-title="三中全会">显示更多</a></td></tr><tr><td>文件</td><td><a href="#" class="popover2" data-placement="top" data-original-title="文件">显示更多</a></td></tr><tr><td>遗产税</td><td><a href="#" class="popover2" data-placement="top" data-original-title="遗产税">显示更多</a></td></tr><tr><td>三中全会</td><td><a href="#" class="popover2" data-placement="top" data-original-title="三中全会">显示更多</a></td></tr><tr><td>参事</td><td><a href="#" class="popover2" data-placement="top" data-original-title="参事">显示更多</a></td></tr><tr><td>新浪</td><td><a href="#" class="popover2" data-placement="top" data-original-title="新浪">显示更多</a></td></tr><tr><td>新闻</td><td><a href="#" class="popover2" data-placement="top" data-original-title="新闻">显示更多</a></td></tr><tr><td>遗产税</td><td>显示更多</td></tr><tr><td>十八届三中全会</td><td>显示更多</td></tr><tr><td>意见</td><td>显示更多</td></tr><tr><td>时机</td><td>显示更多</td></tr><tr><td>条件</td><td>显示更多</td></tr><tr><td>收入</td><td>显示更多</td></tr><tr><td>模式</td><td>显示更多</td></tr><tr><td>文件</td><td>显示更多</td></tr><tr><td>报告</td><td>显示更多</td></tr><tr><td>金陵晚报</td><td>显示更多</td></tr><tr><td>养老</td><td>显示更多</td></tr><tr><td>改革</td><td>显示更多</td></tr><tr><td>研究</td><td>显示更多</td></tr><tr><td>赡养</td><td>显示更多</td></tr><tr><td>中国</td><td>显示更多</td></tr><tr><td>美国</td><td>显示更多</td></tr><tr><td>北京</td><td>显示更多</td></tr><tr><td>刘桓</td><td>显示更多</td></tr><tr><td>国务院参事</td><td>显示更多</td></tr><tr><td>中央财经大学</td><td>显示更多</td></tr><tr><td>北京师范大学</td><td>显示更多</td></tr><tr><td>国务院</td><td>显示更多</td></tr><tr><td>《关于深化收入分配制度改革的若干意见》</td><td>显示更多</td></tr><tr><td>《遗产税制度及其对我国收入分配改革的启示》</td><td>显示更多</td></tr></tbody></table></div><script type="text/javascript">$(function(){$('.popover2').popover({html : true,content: function() {$.get('https://www.googleapis.com/freebase/v1/search?query='+$(this).data('original-title')+'&lang=zh',function(result){ var encoded = $.toJSON(result); var elements = $.evalJSON( encoded ).result;var topic = elements[0].mid;$.get('https://www.googleapis.com/freebase/v1/topic/'+topic+'?filter=/common/topic/description&lang=zh',function(result){var encoded2 = $.toJSON(result);var description = $.evalJSON( encoded2 ).property; $.each(description, function( index, value){$('#popover_content_wrapper').html(value.values[0].value);})})})return $('#popover_content_wrapper').html();}});});</script></div>
+            <div class="tab-pane" id="related">正在建设中</div>
+          </div>
+        
+          
+          
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  
+  <!--footer-->
+  <div class="footer">
+    <ul class="footer-nav navbar-footer-nav">
+      <li><a href="http://www.streamind.com/API">API文档</a></li>
+      <li><a href="http://www.streamind.com/q&amp;a">常见问题</a></li>
+      <li><a href="http://www.streamind.com/contact">联系我们</a></li>
+      <li><a href="http://www.streamind.com/terms" style="width: 65px;">条款&amp;隐私</a></li>
+    </ul>
+    <div class="copyright"><p>Streamind © 2013</p></div>
+  </div>
+    
+  </div>
+</body></html>
